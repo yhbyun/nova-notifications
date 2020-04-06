@@ -28,7 +28,7 @@
                 class="btn"
             >
                 <slot name="action">
-                    mark read
+                    {{ __('mark read') }}
                 </slot>
             </button>
         </div>
@@ -44,7 +44,7 @@
         },
         filters: {
             fromNow(date) {
-                return new moment(date).fromNow()
+                return new moment(date).locale(Nova.config.locale).fromNow()
             }
         },
         methods: {

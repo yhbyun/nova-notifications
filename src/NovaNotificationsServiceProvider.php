@@ -17,9 +17,9 @@ class NovaNotificationsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-notifications');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nova-notifications');
         $this->publishes([
-            __DIR__.'/../config/notifications.php' => config_path('nova-notifications.php'),
+            __DIR__ . '/../config/notifications.php' => config_path('nova-notifications.php'),
         ]);
 
         $this->app->booted(function () {
@@ -30,6 +30,7 @@ class NovaNotificationsServiceProvider extends ServiceProvider
             Nova::provideToScript([
                 'user_model_namespace' => config('nova-notifications.user_model'),
             ]);
+            Nova::translations(__DIR__ . '/../resources/lang/' . app()->getLocale() . '/lang.json');
         });
     }
 
@@ -46,7 +47,7 @@ class NovaNotificationsServiceProvider extends ServiceProvider
 
         Route::middleware(['nova', Authorize::class])
                 ->prefix('nova-vendor/nova-notifications')
-                ->group(__DIR__.'/../routes/api.php');
+                ->group(__DIR__ . '/../routes/api.php');
     }
 
     /**
@@ -57,7 +58,8 @@ class NovaNotificationsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/notifications.php', 'nova-notifications'
+            __DIR__ . '/../config/notifications.php',
+            'nova-notifications'
         );
     }
 }

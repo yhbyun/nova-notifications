@@ -19,14 +19,14 @@
         <dropdown-menu slot="menu" width="600" direction="rtl">
             <loading-view :loading="isLoading">
                 <div class="flex justify-between bg-40 text-90 p-4">
-                    <h3>Notifications</h3>
+                    <h3>{{ __('Notifications') }}</h3>
 
                     <button v-if="count !== 0" class="btn" @click="markAllAsRead()">
-                        mark all as read
+                        {{ __('mark all as read') }}
                     </button>
                 </div>
                 <p v-if="count === 0" class="block p-3">
-                    No new notifications.
+                    {{ __('No new notifications.') }}
                 </p>
                 <scroll-wrap v-else height="350">
                     <slot>
