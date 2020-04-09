@@ -31,6 +31,7 @@ class NovaNotificationsServiceProvider extends ServiceProvider
                 'userModel' => config('nova-notifications.userModel'),
                 'wsHost' => config('nova-notifications.wsHost'),
                 'wsPort' => config('nova-notifications.wsPort'),
+                'wsPath' => config('nova-notifications.wsPath'),
             ]);
             Nova::translations(__DIR__ . '/../resources/lang/' . app()->getLocale() . '/lang.json');
         });

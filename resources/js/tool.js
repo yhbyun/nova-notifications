@@ -20,6 +20,7 @@ Nova.booting((Vue, router, store) => {
         wsHost: Nova.config.wsHost,
         wsPort: Nova.config.wsPort,
         wssPort: Nova.config.wsPort,
+        wsPath: Nova.config.wsPath,
         disableStats: true,
         encrypted: true,
         enabledTransports: ['ws', 'wss'],
