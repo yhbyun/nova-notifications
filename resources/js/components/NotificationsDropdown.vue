@@ -57,8 +57,7 @@
             const that = this
 
             this.loadNotifications(function (response) {
-                console.log(Nova.config.user_model_namespace)
-                Echo.private(Nova.config.user_model_namespace + '.' + response.data.user_id)
+                Echo.private(Nova.config.userModel + '.' + response.data.user_id)
                     .notification(that.notificationReceived)
             })
 
@@ -93,17 +92,17 @@
                     level = notification.level
                 }
 
-                this.$toasted.show(notification.title, {
+                this.$toasted.show(notification.title + ' : ' + notification.subtitle, {
                     type: level,
                     keepOnHover: true,
                     action: [{
-                        text: 'Mark as Read',
+                        text: this.__('mark read'),
                         onClick: (e, toast) => {
                             that.$refs['notification-' + notification.id][0].markAsRead()
                             toast.goAway(0);
                         }
                     }, {
-                        text: 'Cancel',
+                        text: this.__('Close'),
                         onClick: (e, toast) => {
                             toast.goAway(0);
                         }

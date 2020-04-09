@@ -28,7 +28,9 @@ class NovaNotificationsServiceProvider extends ServiceProvider
 
         Nova::serving(function (ServingNova $event) {
             Nova::provideToScript([
-                'user_model_namespace' => config('nova-notifications.user_model'),
+                'userModel' => config('nova-notifications.userModel'),
+                'wsHost' => config('nova-notifications.wsHost'),
+                'wsPort' => config('nova-notifications.wsPort'),
             ]);
             Nova::translations(__DIR__ . '/../resources/lang/' . app()->getLocale() . '/lang.json');
         });

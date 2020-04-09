@@ -2,5 +2,7 @@
 
 return [
     // The Echo namespaced path to the User model
-    'user_model' => 'App.Models.User',
+    'userModel' => 'users',
+    'wsHost' => env('LARAVEL_WEBSOCKETS_HOST', 'localhost'),
+    'wsPort' => env('LARAVEL_WEBSOCKETS_PORT', 6001),
 ];
