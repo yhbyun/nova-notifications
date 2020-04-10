@@ -96,15 +96,23 @@
                     type: level,
                     keepOnHover: true,
                     action: [{
+                        text: this.__('view in detail'),
+                        push: {
+                            path: notification.url,
+                        },
+                        onClick: (e, toast) => {
+                            that.$refs['notification-' + notification.id][0].markAsRead()
+                        }
+                    }, {
                         text: this.__('mark read'),
                         onClick: (e, toast) => {
                             that.$refs['notification-' + notification.id][0].markAsRead()
-                            toast.goAway(0);
+                            toast.goAway(0)
                         }
                     }, {
                         text: this.__('Close'),
                         onClick: (e, toast) => {
-                            toast.goAway(0);
+                            toast.goAway(0)
                         }
                     }],
                 })
