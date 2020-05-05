@@ -7,7 +7,7 @@
                 class="no-underline text-black flex-1"
             >
                 <slot name="content">
-                    <h4 class="no-underline dim text-primary font-bold pb-2">{{ notification.data.title }}</h4>
+                    <h4 class="no-underline dim text-primary font-bold pb-2" v-html="notification.data.title"></h4>
 
                     <p
                         v-if="notification.data.subtitle"
