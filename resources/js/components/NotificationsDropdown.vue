@@ -28,7 +28,7 @@
                 <p v-if="count === 0" class="block p-3">
                     {{ __('No new notifications.') }}
                 </p>
-                <scroll-wrap v-else height="350">
+                <scroll-wrap v-else :height="350">
                     <slot>
                         <notification-item
                             :ref="'notification-' + notification.id"
